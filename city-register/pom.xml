@@ -20,6 +20,10 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0600518100f33e526fb9d17f47b2f165fdc4205f
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
