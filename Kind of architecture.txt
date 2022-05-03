@@ -1,0 +1,16 @@
+1. PostgresQL
+2. WebServer (TomCat)
+
+1. Web (interface)
+2. Business (logic)
+3. Persistence (storage)
+
+1. Backend (~2,3)
+2. Frontend (~1)
+
+Request - Person, Address
+Response - Yes\no(haveRegistration?), isTemporal?
+
+Data model
+1. Logical (Application)
+2. Physical (DB)
