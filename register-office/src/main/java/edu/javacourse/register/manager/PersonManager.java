@@ -3,6 +3,9 @@ package edu.javacourse.register.manager;
  *   Created by Kovalyov Anton 04.05.2022
  */
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -15,6 +18,31 @@ import java.util.List;
 
 public class PersonManager {
     public static void main(String[] args) {
+        sessionExample();
+        jpaExample();
+    }
+
+    private static void jpaExample() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence");
+        EntityManager em = emf.createEntityManager(); // Близок к Session по функционалу
+
+        em.getTransaction().begin();
+        Person p = new Person();
+        p.setFirstName("Алексей");
+        p.setLastName("Фёдоров");
+        em.persist(p);
+        System.out.println("Persisted " + p.getPersonId());
+        em.getTransaction().commit();
+        em.close();
+
+        em = emf.createEntityManager();
+        List<Person> personList = em.createQuery("FROM Person", Person.class).getResultList();
+        personList.forEach(System.out::println);
+
+        em.close();
+    }
+
+    private static void sessionExample() {
         SessionFactory sf = buildSessionFactory();
 
         System.out.println();
@@ -43,7 +71,6 @@ public class PersonManager {
         List<Person> personList = session2.createQuery("FROM Person", Person.class).list();
         personList.forEach(System.out::println);
         session2.close();
-
     }
 
     private static SessionFactory buildSessionFactory() {
