@@ -1,0 +1,10 @@
+view package - view bean objects
+business package - business logic
+dao package - dao (logic) for each DB
+
+(12. Внешняя система - проверка регистрации брака)
+1. Get request - view bean
+2. Serve request - business bean
+3. Make request through DAO to DB if needed - physical bean (if business objects differs to DB structure)
+4. Make response - business bean
+5. Return response - view bean
