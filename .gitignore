@@ -4,3 +4,4 @@ out
 *.iml
 network
 network-tcp
+.gitignore
