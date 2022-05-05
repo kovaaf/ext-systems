@@ -22,6 +22,19 @@ CREATE TABLE ro_passport (
     FOREIGN KEY (person_id) references ro_person(person_id) ON delete restrict
 );
 
+create table ro_birth_certificate (
+    birth_certificate_id serial,
+    number_certificate varchar(10) not null,
+    date_issue date not null,
+    person_id integer not null,
+    father_id integer,
+    mother_id integer,
+    primary key (birth_certificate_id),
+    FOREIGN KEY (person_id) references ro_person(person_id) ON delete restrict,
+    FOREIGN KEY (father_id) references ro_person(person_id) ON delete restrict,
+    FOREIGN KEY (mother_id) references ro_person(person_id) ON delete restrict
+);
+
 insert into ro_person (sex, first_name, last_name, patronymic, date_birth)
 values (1, 'Елена', 'Васильева', 'Сергеевна', '1998-03-24'),
 (2, 'Олег', 'Васильев', 'Петрович', '1997-10-16');
