@@ -1,4 +1,4 @@
-package edu.javacourse.register.view;
+package edu.javacourse.register.dto;
 /*
  *   Created by Kovalyov Anton 04.05.2022
  */

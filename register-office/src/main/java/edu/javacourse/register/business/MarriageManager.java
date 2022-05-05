@@ -4,8 +4,8 @@ package edu.javacourse.register.business;
  */
 
 import edu.javacourse.register.dao.MarriageDao;
-import edu.javacourse.register.view.MarriageRequest;
-import edu.javacourse.register.view.MarriageResponse;
+import edu.javacourse.register.dto.MarriageRequest;
+import edu.javacourse.register.dto.MarriageResponse;
 
 public class MarriageManager {
     private MarriageDao dao;
