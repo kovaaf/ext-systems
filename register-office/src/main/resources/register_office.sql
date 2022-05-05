@@ -35,6 +35,19 @@ create table ro_birth_certificate (
     FOREIGN KEY (mother_id) references ro_person(person_id) ON delete restrict
 );
 
+create table ro_marriage_certificate (
+    marriage_certificate_id serial,
+    number_certificate varchar(10) not null,
+    date_issue date not null,
+    husband_id integer not null,
+    wife_id integer not null,
+    active boolean default false,
+    end_date date,
+    primary key (marriage_certificate_id),
+    FOREIGN KEY (husband_id) references ro_person(person_id) ON delete restrict,
+    FOREIGN KEY (wife_id) references ro_person(person_id) ON delete restrict
+);
+
 insert into ro_person (sex, first_name, last_name, patronymic, date_birth)
 values (1, 'Елена', 'Васильева', 'Сергеевна', '1998-03-24'),
 (2, 'Олег', 'Васильев', 'Петрович', '1997-10-16');

@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("1")
 public class PersonFemale extends Person {
-/*    private List<MarriageCertificate> marriageCertificates;
+    private List<MarriageCertificate> marriageCertificates;
     private List<BirthCertificate> birthCertificates;
 
     public List<MarriageCertificate> getMarriageCertificates() {
@@ -28,5 +28,5 @@ public class PersonFemale extends Person {
 
     public void setBirthCertificates(List<BirthCertificate> birthCertificates) {
         this.birthCertificates = birthCertificates;
-    }*/
+    }
 }
