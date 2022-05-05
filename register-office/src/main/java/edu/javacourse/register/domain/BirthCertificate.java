@@ -75,4 +75,16 @@ public class BirthCertificate {
     public void setMother(PersonFemale mother) {
         this.mother = mother;
     }
+
+    @Override
+    public String toString() {
+        return "BirthCertificate{" +
+                "birthCertificateId=" + birthCertificateId +
+                ", number='" + number + '\'' +
+                ", issueDate=" + issueDate +
+                ", person=" + person +
+                ", father=" + father +
+                ", mother=" + mother +
+                '}';
+    }
 }
