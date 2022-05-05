@@ -53,7 +53,7 @@ create table ro_marriage_certificate (
 insert into ro_person (sex, first_name, last_name, patronymic, date_birth)
 values (1, 'Елена', 'Васильева', 'Сергеевна', '1998-03-24'),
 (2, 'Олег', 'Васильев', 'Петрович', '1997-10-16'),
-(1, 'Николай', 'Васильев', 'Олегович', '2018-10-21');
+(2, 'Николай', 'Васильев', 'Олегович', '2018-10-21');
 
 insert into ro_passport (person_id, seria, number, date_issue, issue_department)
 values (1, '4000', '123456', '2012-03-24', 'Passport Department');
