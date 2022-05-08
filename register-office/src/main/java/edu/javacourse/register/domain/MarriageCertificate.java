@@ -4,11 +4,28 @@ package edu.javacourse.register.domain;
  */
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Table(name = "ro_marriage_certificate")
 @Entity
+
+@NamedQueries({
+        @NamedQuery(name = "MarriageCertificate.findMarriageCertificate",
+                query = "SELECT c,husband,wife FROM MarriageCertificate c " +
+                        "LEFT JOIN FETCH c.wife w " +
+                        "LEFT JOIN FETCH c.husband h " +
+                        "WHERE h.firstName = :husbandName " +
+                        "AND h.lastName = :husbandSurName " +
+                        "AND h.patronymic = :husbandPatronymic " +
+                        "AND h.dateOfBirth = :husbandDateOfBirth " +
+                        "AND w.firstName = :wifeName " +
+                        "AND w.lastName = :wifeSurName " +
+                        "AND w.patronymic = :wifePatronymic " +
+                        "AND w.dateOfBirth = :wifeDateOfBirth " +
+                        "AND c.number = :marriageCertificateNumber " +
+                        "AND c.issueDate = :marriageCertificateDate")
+})
+
 public class MarriageCertificate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,5 +100,18 @@ public class MarriageCertificate {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String toString() {
+        return "MarriageCertificate{" +
+                "marriageCertificateId=" + marriageCertificateId +
+                ", number='" + number + '\'' +
+                ", issueDate=" + issueDate +
+                ", husband=" + husband +
+                ", wife=" + wife +
+                ", active=" + active +
+                ", endDate=" + endDate +
+                '}';
     }
 }
