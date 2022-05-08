@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "ro_marriage_certificate")
 @Entity
 
-@NamedQueries({
+/*@NamedQueries({
         @NamedQuery(name = "MarriageCertificate.findMarriageCertificate",
                 query = "SELECT c,husband,wife FROM MarriageCertificate c " +
                         "LEFT JOIN FETCH c.wife w " +
@@ -24,7 +24,7 @@ import java.time.LocalDate;
                         "AND w.dateOfBirth = :wifeDateOfBirth " +
                         "AND c.number = :marriageCertificateNumber " +
                         "AND c.issueDate = :marriageCertificateDate")
-})
+})*/
 
 public class MarriageCertificate {
     @Id
