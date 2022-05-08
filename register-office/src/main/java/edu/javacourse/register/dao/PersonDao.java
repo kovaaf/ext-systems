@@ -7,7 +7,6 @@ import edu.javacourse.register.domain.Person;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-
 import java.util.List;
 
 public class PersonDao {
