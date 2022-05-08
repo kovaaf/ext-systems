@@ -15,6 +15,7 @@
         <hibernate.version>6.0.0.Final</hibernate.version>
         <postgresql.version>42.3.4</postgresql.version>
         <sl4j.veriosn>1.7.36</sl4j.veriosn>
+        <spring.version>5.3.19</spring.version>
     </properties>
 
     <dependencies>
@@ -36,6 +37,18 @@
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.slf4j</groupId>

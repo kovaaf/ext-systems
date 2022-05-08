@@ -14,6 +14,10 @@ public class MarriageManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageManager.class);
     private MarriageDao marriageDao;
 
+    public void setMarriageDao(MarriageDao marriageDao) {
+        this.marriageDao = marriageDao;
+    }
+
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageManager findMarriageCertificate called");
         MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);
