@@ -1,0 +1,6 @@
+1. Requests
+2. MarriageController
+3. MarriageManager
+4. MarriageDao
+5. EntityManager
+6. DB
