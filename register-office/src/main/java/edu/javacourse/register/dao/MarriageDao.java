@@ -15,16 +15,22 @@ import java.util.List;
 public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
     private EntityManager entityManager;
+    private String test;
 
     public MarriageDao() {
         entityManager = Persistence
                 .createEntityManagerFactory("persistence")
                 .createEntityManager();
     }
-    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("MarriageDao findMarriageCertificate called");
 
-        Query query = entityManager.createNamedQuery("MarriageCertificate.findMarriageCertificate");
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
+        LOGGER.info("MarriageDao findMarriageCertificate called: {}", test);
+
+/*        Query query = entityManager.createNamedQuery("MarriageCertificate.findMarriageCertificate");
         query.setParameter("husbandName", request.getHusbandFirstName());
         query.setParameter("husbandSurName", request.getHusbandSurname());
         query.setParameter("husbandPatronymic", request.getHusbandPatronymic());
@@ -41,6 +47,7 @@ public class MarriageDao {
             return new MarriageCertificate();
         } else {
             return resultList.get(0);
-        }
+        }*/
+        return null;
     }
 }
