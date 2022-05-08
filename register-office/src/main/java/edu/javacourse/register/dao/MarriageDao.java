@@ -7,14 +7,16 @@ import edu.javacourse.register.domain.MarriageCertificate;
 import edu.javacourse.register.dto.MarriageRequest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
     private EntityManager entityManager;
+    @Value("${sample.value}")
     private String test;
 
     public MarriageDao() {

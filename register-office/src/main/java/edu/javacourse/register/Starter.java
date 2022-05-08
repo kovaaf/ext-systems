@@ -7,12 +7,16 @@ import edu.javacourse.register.dto.MarriageRequest;
 import edu.javacourse.register.rest.MarriageController;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.logging.Level;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class Starter {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[]{"springContext.xml"}
         );
+//        MarriageController controller = context.getBean(MarriageController.class);
         MarriageController controller = context.getBean("controller", MarriageController.class);
         controller.findMarriageCertificate(new MarriageRequest());
     }
