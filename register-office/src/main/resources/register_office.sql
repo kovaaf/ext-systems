@@ -60,3 +60,6 @@ values (1, '4000', '123456', '2012-03-24', 'Passport Department');
 
 insert into ro_birth_certificate (number_certificate, date_issue, person_id, mother_id, father_id)
 values ('123 Birth', '2018-11-01', 3, 1, 2);
+
+insert into ro_marriage_certificate (number_certificate, date_issue, husband_id, wife_id, active, end_date)
+values ('123 Birth', '2018-11-01', 2, 1, 'true', null);
