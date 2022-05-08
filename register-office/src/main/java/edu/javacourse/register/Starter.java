@@ -13,11 +13,17 @@ import java.util.logging.Logger;
 
 public class Starter {
     public static void main(String[] args) {
+        disableLogging();
         ApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[]{"springContext.xml"}
         );
 //        MarriageController controller = context.getBean(MarriageController.class);
         MarriageController controller = context.getBean("controller", MarriageController.class);
         controller.findMarriageCertificate(new MarriageRequest());
+    }
+    private static void disableLogging() {
+        LogManager logManager = LogManager.getLogManager();
+        Logger logger = logManager.getLogger("");
+        logger.setLevel(Level.SEVERE); //could be Level.OFF
     }
 }
