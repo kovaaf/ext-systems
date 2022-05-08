@@ -15,7 +15,7 @@ public class MarriageManager {
     private MarriageDao marriageDao;
 
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("findMarriageCertificate called");
+        LOGGER.info("MarriageManager findMarriageCertificate called");
         MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);
         // TODO convert marriageCertificate to MarriageResponse
         return new MarriageResponse();
