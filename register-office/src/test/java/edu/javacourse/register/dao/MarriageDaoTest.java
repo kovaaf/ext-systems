@@ -1,12 +1,6 @@
 package edu.javacourse.register.dao;
 
-import edu.javacourse.register.domain.MarriageCertificate;
-import edu.javacourse.register.dto.MarriageRequest;
 import org.junit.Test;
-
-import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 /*
  *   Created by Kovalyov Anton 08.05.2022

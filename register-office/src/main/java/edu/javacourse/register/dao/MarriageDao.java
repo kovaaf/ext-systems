@@ -4,7 +4,7 @@ package edu.javacourse.register.dao;
  */
 
 import edu.javacourse.register.domain.MarriageCertificate;
-import edu.javacourse.register.dto.MarriageRequest;
+import edu.javacourse.register.view.MarriageRequest;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 import org.slf4j.Logger;

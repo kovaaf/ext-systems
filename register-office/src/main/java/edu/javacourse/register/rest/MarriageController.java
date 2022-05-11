@@ -4,8 +4,8 @@ package edu.javacourse.register.rest;
  */
 
 import edu.javacourse.register.business.MarriageManager;
-import edu.javacourse.register.dto.MarriageRequest;
-import edu.javacourse.register.dto.MarriageResponse;
+import edu.javacourse.register.view.MarriageRequest;
+import edu.javacourse.register.view.MarriageResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
