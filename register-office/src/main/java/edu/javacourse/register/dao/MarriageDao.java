@@ -5,25 +5,21 @@ package edu.javacourse.register.dao;
 
 import edu.javacourse.register.domain.MarriageCertificate;
 import edu.javacourse.register.view.MarriageRequest;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Persistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @Component
 public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
+    @PersistenceContext
     private EntityManager entityManager;
     @Value("${sample.value}")
     private String test;
-
-    public MarriageDao() {
-        entityManager = Persistence
-                .createEntityManagerFactory("persistence")
-                .createEntityManager();
-    }
 
     public void setTest(String test) {
         this.test = test;

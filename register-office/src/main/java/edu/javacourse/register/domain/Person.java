@@ -2,9 +2,7 @@ package edu.javacourse.register.domain;
 /*
  *   Created by Kovalyov Anton 04.05.2022
  */
-
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
