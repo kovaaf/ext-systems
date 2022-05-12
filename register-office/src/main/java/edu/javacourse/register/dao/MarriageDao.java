@@ -5,47 +5,28 @@ package edu.javacourse.register.dao;
 
 import edu.javacourse.register.domain.MarriageCertificate;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface MarriageDao extends JpaRepository<MarriageCertificate, Long> {
+    // findBy*parameter name*
+    List<MarriageCertificate> findByNumber(String number);
+
+    // findBy*parameter name*Containing
+    List<MarriageCertificate> findByNumberContaining(String number);
+
+    // findBy*any name*(@Param("*HQL parameter name*") Typeofparameter *parameter name*) || HQL: ...where tablename.columnname = :*parameter name*
+    // findBy*any name*(Typeofparameter *parameter name*) || HQL: ...where tablename.columnname = ?*parameter ordinal*
+    List<MarriageCertificate> findByNum(@Param("number") String number);
+
+    // @Query right here("HQL")
+    // find*any name*(@Param("*HQL parameter name*") Typeofparameter *parameter name*)
+    @Query("SELECT mc FROM MarriageCertificate mc " +
+            "WHERE mc.number = :number")
+    List<MarriageCertificate> findSomething(@Param("number") String number);
 
 }
-
-/*
-public class MarriageDao {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
-    @PersistenceContext
-    private EntityManager entityManager;
-    @Value("${sample.value}")
-    private String test;
-
-    public void setTest(String test) {
-        this.test = test;
-    }
-
-    public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
-        LOGGER.info("MarriageDao findMarriageCertificate called: {}", test);
-
-        Query query = entityManager.createNamedQuery("MarriageCertificate.findMarriageCertificate");
-        query.setParameter("husbandName", request.getHusbandFirstName());
-        query.setParameter("husbandSurName", request.getHusbandSurname());
-        query.setParameter("husbandPatronymic", request.getHusbandPatronymic());
-        query.setParameter("husbandDateOfBirth", request.getHusbandDateOfBirth());
-        query.setParameter("wifeName", request.getWifeFirstName());
-        query.setParameter("wifeSurName", request.getWifeSurname());
-        query.setParameter("wifePatronymic", request.getWifePatronymic());
-        query.setParameter("wifeDateOfBirth", request.getWifeDateOfBirth());
-        query.setParameter("marriageCertificateNumber", request.getMarriageCertificateNumber());
-        query.setParameter("marriageCertificateDate", request.getMarriageCertificateDate());
-
-        List<MarriageCertificate> resultList = query.getResultList();
-        if (resultList.isEmpty()) {
-            return new MarriageCertificate();
-        } else {
-            return resultList.get(0);
-        }
-        return null;
-    }
-}
- */

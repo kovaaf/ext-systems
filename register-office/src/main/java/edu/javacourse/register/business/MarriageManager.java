@@ -44,11 +44,26 @@ public class MarriageManager {
         personDao.addPerson(getPerson(1));
         personDao.addPerson(getPerson(2));
 
-        MarriageCertificate mc = getMarriageCertificate();
-        marriageDao.saveAndFlush(mc);
-        List<MarriageCertificate> all = marriageDao.findAll();
-        all.forEach(System.out::println);
-        System.out.println(marriageDao.findById(1L));
+/*        MarriageCertificate mc = getMarriageCertificate();
+        marriageDao.saveAndFlush(mc);*/
+/*        List<MarriageCertificate> all = marriageDao.findAll();
+        all.forEach(mcs -> LOGGER.info("MC: {}", mcs));
+        System.out.println(marriageDao.findById(1L));*/
+
+        List<MarriageCertificate> marriageCertificates1 = marriageDao.findByNumber("123456");
+        marriageCertificates1.forEach(mcs -> LOGGER.info("MC: {}", mcs.getMarriageCertificateId()));
+
+        LOGGER.info("<<<<---->>>>");
+        List<MarriageCertificate> marriageCertificates2 = marriageDao.findByNumberContaining("b1");
+        marriageCertificates2.forEach(mcs -> LOGGER.info("MC: {}", mcs.getMarriageCertificateId()));
+
+        LOGGER.info("<<<<---->>>>");
+        List<MarriageCertificate> marriageCertificates3 = marriageDao.findByNum("b123");
+        marriageCertificates3.forEach(mcs -> LOGGER.info("MC: {}", mcs.getMarriageCertificateId()));
+
+        LOGGER.info("<<<<---->>>>");
+        List<MarriageCertificate> marriageCertificates4 = marriageDao.findSomething("abcd");
+        marriageCertificates4.forEach(mcs -> LOGGER.info("MC: {}", mcs.getMarriageCertificateId()));
 
         return new MarriageResponse();
     }
@@ -56,7 +71,7 @@ public class MarriageManager {
     private MarriageCertificate getMarriageCertificate() {
         MarriageCertificate mc = new MarriageCertificate();
         mc.setIssueDate(LocalDate.now());
-        mc.setNumber("123456");
+        mc.setNumber("abcd");
         mc.setActive(true);
 
         List<Person> persons = personDao.findPersons();
