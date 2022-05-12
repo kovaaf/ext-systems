@@ -15,8 +15,7 @@ import java.util.List;
         @NamedQuery(name = "Person.findPersons",
                 query = "SELECT p FROM Person p " +
                         "LEFT JOIN FETCH p.passports ps " +
-                        "LEFT JOIN FETCH p.birthCertificate bs " +
-                        "WHERE p.personId = :personId")
+                        "LEFT JOIN FETCH p.birthCertificate bs")
 })
 
 public abstract class Person {
@@ -91,5 +90,18 @@ public abstract class Person {
 
     public void setPassports(List<Passport> passports) {
         this.passports = passports;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", birthCertificate=" + birthCertificate +
+                ", passports=" + passports +
+                '}';
     }
 }

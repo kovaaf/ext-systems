@@ -7,6 +7,7 @@ import edu.javacourse.register.dao.MarriageDao;
 import edu.javacourse.register.dao.PersonDao;
 import edu.javacourse.register.domain.MarriageCertificate;
 import edu.javacourse.register.domain.Person;
+import edu.javacourse.register.domain.PersonFemale;
 import edu.javacourse.register.domain.PersonMale;
 import edu.javacourse.register.view.MarriageRequest;
 import edu.javacourse.register.view.MarriageResponse;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service("marriageService")
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
@@ -32,9 +34,6 @@ public class MarriageManager {
     @Transactional
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageManager findMarriageCertificate called");
-//        MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);
-
-        personDao.findPersons();
 
         /*
         Following code doesn't work because these are same entities, and you need to detach it from entityManager(DB).
@@ -42,20 +41,40 @@ public class MarriageManager {
         personDao.addPerson(male);
         personDao.addPerson(male);
          */
-        personDao.addPerson(getPerson());
-        personDao.addPerson(getPerson());
-        personDao.addPerson(getPerson());
+        personDao.addPerson(getPerson(1));
+        personDao.addPerson(getPerson(2));
 
-        // TODO convert marriageCertificate to MarriageResponse
+        MarriageCertificate mc = getMarriageCertificate();
+        marriageDao.saveAndFlush(mc);
+        List<MarriageCertificate> all = marriageDao.findAll();
+        all.forEach(System.out::println);
+        System.out.println(marriageDao.findById(1L));
 
         return new MarriageResponse();
     }
 
-    private Person getPerson() {
-        Person male = new PersonMale();
-        male.setFirstName("1");
-        male.setLastName("2");
-        male.setPatronymic("3");
+    private MarriageCertificate getMarriageCertificate() {
+        MarriageCertificate mc = new MarriageCertificate();
+        mc.setIssueDate(LocalDate.now());
+        mc.setNumber("123456");
+        mc.setActive(true);
+
+        List<Person> persons = personDao.findPersons();
+        for(Person p : persons) {
+            if (p instanceof PersonMale male) {
+                mc.setHusband(male);
+            } else {
+                mc.setWife((PersonFemale) p);
+            }
+        }
+        return mc;
+    }
+
+    private Person getPerson(int sex) {
+        Person male = sex == 1 ? new PersonMale() : new PersonFemale();
+        male.setFirstName("1_" + sex);
+        male.setLastName("2_" + sex);
+        male.setPatronymic("3_" + sex);
         male.setDateOfBirth(LocalDate.of(1991, 3, 12));
         return male;
     }
