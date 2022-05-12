@@ -19,7 +19,7 @@ import java.util.List;
                         "WHERE p.personId = :personId")
 })
 
-public class Person {
+public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id")
