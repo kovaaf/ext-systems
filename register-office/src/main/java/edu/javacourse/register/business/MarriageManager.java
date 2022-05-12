@@ -36,15 +36,27 @@ public class MarriageManager {
 
         personDao.findPersons();
 
+        /*
+        Following code doesn't work because these are same entities, and you need to detach it from entityManager(DB).
+        Person male = new PersonMale();
+        personDao.addPerson(male);
+        personDao.addPerson(male);
+         */
+        personDao.addPerson(getPerson());
+        personDao.addPerson(getPerson());
+        personDao.addPerson(getPerson());
+
+        // TODO convert marriageCertificate to MarriageResponse
+
+        return new MarriageResponse();
+    }
+
+    private Person getPerson() {
         Person male = new PersonMale();
         male.setFirstName("1");
         male.setLastName("2");
         male.setPatronymic("3");
         male.setDateOfBirth(LocalDate.of(1991, 3, 12));
-        personDao.addPerson(male);
-
-        // TODO convert marriageCertificate to MarriageResponse
-
-        return new MarriageResponse();
+        return male;
     }
 }
