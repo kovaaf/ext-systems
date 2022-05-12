@@ -5,7 +5,6 @@ package edu.javacourse.register.dao;
 
 import edu.javacourse.register.domain.Person;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
