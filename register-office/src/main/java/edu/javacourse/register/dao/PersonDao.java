@@ -20,16 +20,8 @@ public class PersonDao {
     }
 
     public Long addPerson(Person person) {
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        try {
-            entityManager.persist(person);
-            entityManager.flush();
-            transaction.commit();
-        } catch (Exception e) {
-            transaction.rollback();
-            throw new RuntimeException(e);
-        }
+        entityManager.persist(person);
+        entityManager.flush();
         return person.getPersonId();
     }
 }

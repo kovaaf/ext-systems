@@ -29,6 +29,7 @@ public class MarriageManager {
     @Autowired
     private PersonDao personDao;
 
+    @Transactional
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageManager findMarriageCertificate called");
         MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);

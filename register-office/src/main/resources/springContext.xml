@@ -16,6 +16,8 @@
 
     <context:component-scan base-package="edu.javacourse.register"/>
 
+    <tx:annotation-driven transaction-manager="txManager"/>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://localhost:5432/register_office"/>
@@ -39,5 +41,9 @@
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
+    </bean>
+
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="emf"/>
     </bean>
 </beans>
