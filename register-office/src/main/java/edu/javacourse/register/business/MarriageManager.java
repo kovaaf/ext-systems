@@ -32,7 +32,7 @@ public class MarriageManager {
     @Transactional
     public MarriageResponse findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageManager findMarriageCertificate called");
-        MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);
+//        MarriageCertificate marriageCertificate = marriageDao.findMarriageCertificate(request);
 
         personDao.findPersons();
 

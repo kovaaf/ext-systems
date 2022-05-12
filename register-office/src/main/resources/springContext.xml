@@ -16,6 +16,10 @@
 
     <context:component-scan base-package="edu.javacourse.register"/>
 
+    <jpa:repositories base-package="edu.javacourse.register"
+                      entity-manager-factory-ref="emf"
+                      transaction-manager-ref="txManager"/>
+
     <tx:annotation-driven transaction-manager="txManager"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

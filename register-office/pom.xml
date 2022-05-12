@@ -12,11 +12,12 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <junit.version>4.13.2</junit.version>
-        <hibernate.version>6.0.1.Final</hibernate.version>
-        <hibernateCompatible.version>5.6.0.Final</hibernateCompatible.version>
-        <postgresql.version>42.3.4</postgresql.version>
         <sl4j.veriosn>1.7.36</sl4j.veriosn>
+        <postgresql.version>42.3.4</postgresql.version>
+        <hibernate.version>6.0.1.Final</hibernate.version> <!--not compatible with spring-data 2.6-->
+        <hibernateCompatible.version>5.6.0.Final</hibernateCompatible.version>
         <spring.version>5.3.19</spring.version>
+        <springdata.version>2.6.4</springdata.version>
     </properties>
 
     <dependencies>
@@ -53,6 +54,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${springdata.version}</version>
         </dependency>
 
         <dependency>

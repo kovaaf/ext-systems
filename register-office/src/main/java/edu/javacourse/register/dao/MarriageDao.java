@@ -4,16 +4,15 @@ package edu.javacourse.register.dao;
  */
 
 import edu.javacourse.register.domain.MarriageCertificate;
-import edu.javacourse.register.view.MarriageRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+@Repository
+public interface MarriageDao extends JpaRepository<MarriageCertificate, Long> {
 
-@Component
+}
+
+/*
 public class MarriageDao {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageDao.class);
     @PersistenceContext
@@ -28,7 +27,7 @@ public class MarriageDao {
     public MarriageCertificate findMarriageCertificate(MarriageRequest request) {
         LOGGER.info("MarriageDao findMarriageCertificate called: {}", test);
 
-/*        Query query = entityManager.createNamedQuery("MarriageCertificate.findMarriageCertificate");
+        Query query = entityManager.createNamedQuery("MarriageCertificate.findMarriageCertificate");
         query.setParameter("husbandName", request.getHusbandFirstName());
         query.setParameter("husbandSurName", request.getHusbandSurname());
         query.setParameter("husbandPatronymic", request.getHusbandPatronymic());
@@ -45,7 +44,8 @@ public class MarriageDao {
             return new MarriageCertificate();
         } else {
             return resultList.get(0);
-        }*/
+        }
         return null;
     }
 }
+ */
