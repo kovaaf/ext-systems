@@ -12,15 +12,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 @Service("controller")
+@Path("/mc")
 public class MarriageController {
     private static final Logger LOGGER = LoggerFactory.getLogger(MarriageController.class);
     @Autowired
     @Qualifier("marriageService")
     private MarriageManager marriageManager;
 
-    public MarriageResponse findMarriageCertificate(MarriageRequest marriageRequest) {
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public MarriageResponse findMarriageCertificate(/*MarriageRequest marriageRequest*/) {
         LOGGER.info("MarriageController findMarriageCertificate() called");
-        return marriageManager.findMarriageCertificate(marriageRequest);
+//        return marriageManager.findMarriageCertificate(marriageRequest);
+        return marriageManager.findMarriageCertificate(null);
     }
 }

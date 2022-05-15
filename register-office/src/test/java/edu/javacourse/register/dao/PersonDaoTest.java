@@ -15,7 +15,7 @@ public class PersonDaoTest {
 
     @Test
     public void findPersons() {
-        PersonDao dao = new PersonDao();
+/*        PersonDao dao = new PersonDao();
         List<Person> persons = dao.findPersons();
 
         persons.forEach(person -> {
@@ -32,6 +32,6 @@ public class PersonDaoTest {
             }
             System.out.println();
             System.out.println();
-        });
+        });*/
     }
 }

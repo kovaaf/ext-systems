@@ -3,7 +3,7 @@ package edu.javacourse.city.domain;
  *   Created by Kovalyov Anton 01.05.2022
  */
 
-import jakarta.xml.bind.annotation.adapters.XmlAdapter;
+import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
