@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * @author Kovalyov Anton 15.05.2022
  */
-@Component
+@Component // @Controller
 @Path("/student")
 public class StudentController {
     @Autowired

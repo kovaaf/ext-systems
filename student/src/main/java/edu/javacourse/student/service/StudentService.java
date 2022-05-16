@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 /**
  * @author Kovalyov Anton 15.05.2022
  */
-@Service
+@Service // Handler
 public class StudentService {
     private static final Logger LOGGER = LoggerFactory.getLogger(StudentService.class);
 
