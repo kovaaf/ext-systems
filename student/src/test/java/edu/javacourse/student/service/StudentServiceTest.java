@@ -1,7 +1,6 @@
 package edu.javacourse.student.service;
 
 import edu.javacourse.student.rest.StudentController;
-import edu.javacourse.student.view.LocalDateAdapter;
 import edu.javacourse.student.view.StudentRequest;
 import edu.javacourse.student.view.StudentResponse;
 import org.junit.Assert;
@@ -13,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.List;
 
