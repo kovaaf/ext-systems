@@ -42,7 +42,7 @@ public class UniversityService {
     @Transactional(readOnly = true)
     public Faculty getFaculty(Long facultyId) {
         Faculty faculty = facultyRepository.findById(facultyId).get();
-        faculty.getUniversity().getUniversityName(); // To force fetching university data
+        faculty.getUniversity().getUniversityName(); // To force fetching university data - bad approach
         return faculty;
     }
     @Transactional(readOnly = true)
