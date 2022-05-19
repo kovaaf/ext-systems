@@ -106,7 +106,7 @@
             <version>${springdata.version}</version>
         </dependency>
 
-        <dependency>
+<!--        <dependency>
             <groupId>org.glassfish.jersey.ext</groupId>
             <artifactId>jersey-spring5</artifactId>
             <version>${jersey.version}</version>
@@ -130,7 +130,7 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>${jaxb.version}</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>
