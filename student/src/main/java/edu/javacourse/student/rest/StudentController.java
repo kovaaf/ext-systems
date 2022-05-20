@@ -6,7 +6,10 @@ import edu.javacourse.student.view.StudentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -41,4 +44,16 @@ public class StudentController {
         return id + ": " + com;
     }
 
+    @PostMapping(path = "/photo", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public String uploadPhoto(@RequestParam(value = "comment", required = false) String comment,
+                              @RequestParam("photoFile")MultipartFile file) {
+        try(InputStream is = file.getInputStream()) {
+            return "Comment: " + comment +
+                    ", name: " + file.getName() +
+                    ", filename: " + file.getOriginalFilename() +
+                    ", size: " + is.available();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
